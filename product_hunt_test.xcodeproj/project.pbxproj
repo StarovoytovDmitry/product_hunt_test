@@ -13,6 +13,9 @@
 		B765576B1E3E29890051A1FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B76557691E3E29890051A1FE /* Main.storyboard */; };
 		B765576D1E3E29890051A1FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B765576C1E3E29890051A1FE /* Assets.xcassets */; };
 		B76557701E3E29890051A1FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B765576E1E3E29890051A1FE /* LaunchScreen.storyboard */; };
+		B7917A461E3E666700C2EBCF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7917A451E3E666700C2EBCF /* DataManager.swift */; };
+		B7917A491E3E8A5300C2EBCF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7917A481E3E8A5200C2EBCF /* TableViewCell.swift */; };
+		B7917A4B1E41128900C2EBCF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7917A4A1E41128900C2EBCF /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		B765576C1E3E29890051A1FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B765576F1E3E29890051A1FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B76557711E3E29890051A1FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7917A451E3E666700C2EBCF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		B7917A481E3E8A5200C2EBCF /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		B7917A4A1E41128900C2EBCF /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,13 +76,48 @@
 			isa = PBXGroup;
 			children = (
 				B76557651E3E29890051A1FE /* AppDelegate.swift */,
-				B76557671E3E29890051A1FE /* ViewController.swift */,
+				B7917A4E1E41140200C2EBCF /* Controllers */,
+				B7917A4D1E4113F700C2EBCF /* Model */,
+				B7917A4C1E4113EF00C2EBCF /* API */,
+				B7917A431E3E660800C2EBCF /* View */,
+			);
+			path = product_hunt_test;
+			sourceTree = "<group>";
+		};
+		B7917A431E3E660800C2EBCF /* View */ = {
+			isa = PBXGroup;
+			children = (
 				B76557691E3E29890051A1FE /* Main.storyboard */,
 				B765576C1E3E29890051A1FE /* Assets.xcassets */,
 				B765576E1E3E29890051A1FE /* LaunchScreen.storyboard */,
 				B76557711E3E29890051A1FE /* Info.plist */,
 			);
-			path = product_hunt_test;
+			name = View;
+			sourceTree = "<group>";
+		};
+		B7917A4C1E4113EF00C2EBCF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B7917A451E3E666700C2EBCF /* DataManager.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		B7917A4D1E4113F700C2EBCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B7917A4A1E41128900C2EBCF /* Product.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B7917A4E1E41140200C2EBCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B76557671E3E29890051A1FE /* ViewController.swift */,
+				B7917A481E3E8A5200C2EBCF /* TableViewCell.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		DC3262FA6993A15B744D2EF8 /* Pods */ = {
@@ -125,6 +166,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = MPGRZ3JK28;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -213,6 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76557681E3E29890051A1FE /* ViewController.swift in Sources */,
+				B7917A491E3E8A5300C2EBCF /* TableViewCell.swift in Sources */,
+				B7917A4B1E41128900C2EBCF /* Product.swift in Sources */,
+				B7917A461E3E666700C2EBCF /* DataManager.swift in Sources */,
 				B76557661E3E29890051A1FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +426,7 @@
 				B76557761E3E29890051A1FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
