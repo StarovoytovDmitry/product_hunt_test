@@ -11,7 +11,11 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let dataManager = DataManager()
-    let current_category : String = "tech"
+    var current_category : String? {
+        didSet {
+            getProducts()
+        }
+    }
     var products: [Product]?
     var categories : [String]?
     
@@ -21,6 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.current_category = "tech"
         self.title = current_category
         
         self.tableView.delegate = self
@@ -29,14 +34,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
+        getCategories()
+        getProducts()
+        
+    }
+    
+    func getCategories(){
         dataManager.sendGetAllCategoriesRequest(success: { (categories) in
             self.categories = categories
             self.pickerView.reloadAllComponents()
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-        dataManager.sendPostsForCategoryRequest(category: current_category, success: { (products) in
+    }
+    
+    func getProducts(){
+        dataManager.sendPostsForCategoryRequest(category: current_category!, success: { (products) in
             self.products = products
             self.tableView.reloadData()
             //print(products)
@@ -44,6 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(error.localizedDescription)
         })
     }
+    
     // MARK : Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -79,6 +93,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categories?[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        current_category = categories?[row]
+        self.title = current_category
     }
     
     override func didReceiveMemoryWarning() {
