@@ -16,6 +16,7 @@
 		B7917A461E3E666700C2EBCF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7917A451E3E666700C2EBCF /* DataManager.swift */; };
 		B7917A491E3E8A5300C2EBCF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7917A481E3E8A5200C2EBCF /* TableViewCell.swift */; };
 		B7917A4B1E41128900C2EBCF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7917A4A1E41128900C2EBCF /* Product.swift */; };
+		B7917A501E42820700C2EBCF /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7917A4F1E42820700C2EBCF /* ProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B7917A451E3E666700C2EBCF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B7917A481E3E8A5200C2EBCF /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B7917A4A1E41128900C2EBCF /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B7917A4F1E42820700C2EBCF /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				B76557671E3E29890051A1FE /* ViewController.swift */,
+				B7917A4F1E42820700C2EBCF /* ProductViewController.swift */,
 				B7917A481E3E8A5200C2EBCF /* TableViewCell.swift */,
 			);
 			name = Controllers;
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7917A501E42820700C2EBCF /* ProductViewController.swift in Sources */,
 				B76557681E3E29890051A1FE /* ViewController.swift in Sources */,
 				B7917A491E3E8A5300C2EBCF /* TableViewCell.swift in Sources */,
 				B7917A4B1E41128900C2EBCF /* Product.swift in Sources */,

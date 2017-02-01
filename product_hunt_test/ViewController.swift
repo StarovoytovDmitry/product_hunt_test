@@ -35,8 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.pickerView.dataSource = self
         
         getCategories()
-        getProducts()
-        
+        //getProducts()
     }
     
     func getCategories(){
@@ -52,7 +51,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dataManager.sendPostsForCategoryRequest(category: current_category!, success: { (products) in
             self.products = products
             self.tableView.reloadData()
-            //print(products)
         }, failyre: { (error) in
             print(error.localizedDescription)
         })
@@ -76,6 +74,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print(dataManager.categories.count)
         cell.product = products![indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productVC = storyboard?.instantiateViewController(withIdentifier: "Product") as? ProductViewController
+        productVC?.product = products?[indexPath.row]
+        navigationController?.pushViewController(productVC!, animated: true)
+        //productVC?.productView = products![indexPath.row].description as? String
     }
     
     // MARK: Picker View
