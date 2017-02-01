@@ -68,14 +68,14 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="upvotes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9x3-Qh-567">
-                                                    <rect key="frame" x="306" y="70.5" width="61" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="312.5" y="73" width="54.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izG-jH-P2f">
-                                                    <rect key="frame" x="99" y="28" width="268" height="63"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izG-jH-P2f">
+                                                    <rect key="frame" x="99" y="28" width="248" height="63"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -89,7 +89,7 @@
                                                 <constraint firstItem="9x3-Qh-567" firstAttribute="trailing" secondItem="tB5-Qs-YzP" secondAttribute="trailingMargin" id="TJQ-f2-7Je"/>
                                                 <constraint firstItem="izG-jH-P2f" firstAttribute="leading" secondItem="Ygo-hk-NvR" secondAttribute="trailing" constant="8" id="U7x-Lv-Z3g"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="izG-jH-P2f" secondAttribute="bottom" id="UJ2-vp-qPu"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="izG-jH-P2f" secondAttribute="trailing" id="ZXp-W8-ZOc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="izG-jH-P2f" secondAttribute="trailing" constant="20" id="ZXp-W8-ZOc"/>
                                                 <constraint firstItem="izG-jH-P2f" firstAttribute="top" secondItem="BdP-Bd-q4M" secondAttribute="bottom" id="d65-GJ-VFi"/>
                                                 <constraint firstItem="9x3-Qh-567" firstAttribute="bottom" secondItem="tB5-Qs-YzP" secondAttribute="bottomMargin" id="fm0-2V-F2W"/>
                                                 <constraint firstItem="Ygo-hk-NvR" firstAttribute="top" secondItem="tB5-Qs-YzP" secondAttribute="topMargin" id="kVH-yv-815"/>
