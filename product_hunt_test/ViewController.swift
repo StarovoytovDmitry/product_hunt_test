@@ -8,14 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let dataManager = DataManager()
     let current_category : String = "tech"
     var products: [Product]?
+    var categories : [String]?
     
     @IBOutlet weak var tableView: UITableView!
-    var x : Int = 0
+    @IBOutlet weak var pickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        x = dataManager.sendGetAllCategoriesRequest(tableView: tableView).count
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
+        
+        dataManager.sendGetAllCategoriesRequest(success: { (categories) in
+            self.categories = categories
+            self.pickerView.reloadAllComponents()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
         dataManager.sendPostsForCategoryRequest(category: current_category, success: { (products) in
             self.products = products
             self.tableView.reloadData()
@@ -34,7 +44,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(error.localizedDescription)
         })
     }
-    
+    // MARK : Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -52,6 +62,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print(dataManager.categories.count)
         cell.product = products![indexPath.row]
         return cell
+    }
+    
+    // MARK: Picker View
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if categories == nil {
+            return 0
+        } else {
+            return categories!.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories?[row]
     }
     
     override func didReceiveMemoryWarning() {

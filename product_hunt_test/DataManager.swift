@@ -14,9 +14,9 @@ class DataManager {
     private var urlParams = [
         "access_token":"591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff",
         ]
-    var categories = [""]
+    //var categories = [""]
     
-    func sendGetAllCategoriesRequest(tableView: UITableView)->Array<String> {
+    func sendGetAllCategoriesRequest(success: @escaping ([String]) -> (),  failyre: @escaping (NSError) -> ()) {
         // Add Headers
         let headers = [
             "Content-Type":"application/json",
@@ -31,18 +31,19 @@ class DataManager {
                     //print(results)
                     let categories_mas = results.value(forKey: "categories") as! NSArray
                     //print(categories_mas)
+                    var categories = [String]()
                     for i in categories_mas {
                         let tmp = (i as AnyObject).value(forKey: "slug") as! String
                         //print(tmp)
-                        self.categories.append(tmp)
-                        tableView.reloadData()
+                        categories.append(tmp)
+                        success(categories)
                     }
                 }
                 else {
                     debugPrint("HTTP Request failed: \(response.result.error)")
+                    failyre(response.result.error as! NSError)
                 }
         }
-        return categories
     }
     
     func sendPostsForCategoryRequest(category: String, success: @escaping ([Product]) -> (),  failyre: @escaping (NSError) -> ()) {

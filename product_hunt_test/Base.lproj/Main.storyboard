@@ -113,6 +113,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CJG-7J-Fi5"/>
                     <connections>
+                        <outlet property="pickerView" destination="dKH-bd-syg" id="F34-YB-9QJ"/>
                         <outlet property="tableView" destination="a2Q-Mi-lsJ" id="mxS-RV-nXo"/>
                     </connections>
                 </viewController>
