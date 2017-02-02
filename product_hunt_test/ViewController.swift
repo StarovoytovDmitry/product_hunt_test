@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -21,6 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         getCategories()
         //getProducts()
+        
+        //Set up pull to refresh loading
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.getProducts), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        UserNotificationManager.shared.addNotification()
     }
     
     func getCategories(){
@@ -51,12 +60,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dataManager.sendPostsForCategoryRequest(category: current_category!, success: { (products) in
             self.products = products
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }, failyre: { (error) in
             print(error.localizedDescription)
         })
     }
     
-    // MARK : Table View
+    // MARK : TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -83,7 +93,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //productVC?.productView = products![indexPath.row].description as? String
     }
     
-    // MARK: Picker View
+    // MARK: PickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
