@@ -14,7 +14,7 @@ class UserNotificationManager {
     static let shared = UserNotificationManager()
     
     func registerNotification() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted:Bool, error:Error?) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound]) { (granted:Bool, error:Error?) in
             if error != nil {
                 print(error?.localizedDescription as Any)
             }
@@ -26,17 +26,27 @@ class UserNotificationManager {
         }
     }
     
-    func addNotification() {
-        let content = self.contentWith("Hi")
+    func addNotificationCount(count: Int) {
+        let content = UNMutableNotificationContent()
+        content.title = "New posts counts"
+        content.subtitle = "Counts"
+        content.body = String(count)
+        content.sound = UNNotificationSound.default()
+        
         self.addDelayNotificationWith(content)
     }
     
-    func contentWith(_ subtitle: String) -> UNMutableNotificationContent {
+    func addNotificationProduct(product: Product) {
+        let content = self.contentWith(product)
+        self.addDelayNotificationWith(content)
+    }
+    
+    func contentWith(_ product: Product) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
-        content.badge = 1
-        content.title = "Title"
-        content.subtitle = subtitle
-        content.body = "Body"
+        //content.badge = 1
+        content.title = product.name as! String
+        content.subtitle = product.description as! String
+        content.body = String(product.upvoutes)
         content.sound = UNNotificationSound.default()
         
         return content

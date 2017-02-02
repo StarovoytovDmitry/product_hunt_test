@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     var products: [Product]?
     var categories : [String]?
+    var defaults = UserDefaults.standard
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -44,7 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refreshControl.addTarget(self, action: #selector(self.getProducts), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
-        UserNotificationManager.shared.addNotification()
+        //UserNotificationManager.shared.addNotification(text: "LOL")
     }
     
     func getCategories(){
@@ -57,8 +58,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getProducts(){
+        
         dataManager.sendPostsForCategoryRequest(category: current_category!, success: { (products) in
             self.products = products
+            self.defaults.set(products.count, forKey: "countProducts")
+            self.defaults.synchronize()
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
         }, failyre: { (error) in
