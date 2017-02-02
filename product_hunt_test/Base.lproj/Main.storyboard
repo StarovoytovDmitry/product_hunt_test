@@ -176,6 +176,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRW-EU-d07">
                                 <rect key="frame" x="168" y="373" width="38" height="30"/>
                                 <state key="normal" title="Get It"/>
+                                <connections>
+                                    <action selector="getProduct:" destination="JHH-ev-eEA" eventType="touchUpInside" id="atg-qg-gOK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="933.60000000000002" y="91.304347826086968"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="1F9-dQ-sSP">
             <objects>
-                <viewController id="Zr2-QN-TXU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Web" id="Zr2-QN-TXU" customClass="WebViewController" customModule="product_hunt_test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A6g-Ft-EaF"/>
                         <viewControllerLayoutGuide type="bottom" id="CUs-2Q-I4v"/>
@@ -231,6 +234,9 @@
                             <constraint firstItem="GQ5-mv-9FK" firstAttribute="leading" secondItem="jZc-Sr-c16" secondAttribute="leading" id="Xap-mE-tfs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="GQ5-mv-9FK" id="pPl-KF-Ftn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB4-DV-p8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

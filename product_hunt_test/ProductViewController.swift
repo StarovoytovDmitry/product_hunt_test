@@ -17,6 +17,12 @@ class ProductViewController: UIViewController {
     
     var product: Product?
     
+    @IBAction func getProduct(_ sender: Any) {
+        let webVC = storyboard?.instantiateViewController(withIdentifier: "Web") as? WebViewController
+        webVC?.url = product?.urlPath as URL?
+        navigationController?.pushViewController(webVC!, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         productName.text = product?.name as? String
